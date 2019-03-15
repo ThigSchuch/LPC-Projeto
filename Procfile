@@ -1,1 +1,1 @@
-web: gunicorn hello_world_django.wsgi --log-file -
+web: gunicorn projeto_noticias.wsgi --log-file -
