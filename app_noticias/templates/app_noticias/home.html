@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+</head>
+
+<body>
+
+    <center><h1>Plantão G1</h1></center>  
+    {% for noticia in object_list %}
+        {% if noticia.publicado %}
+
+            <div>
+                <h2>{{ noticia.titulo }}</h2>
+                <p>{{ noticia.conteudo | linebreaksbr}}</p>
+                <p align="right">{{ noticia.data_criacao}}</p>
+                <br>
+            </div>
+
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
