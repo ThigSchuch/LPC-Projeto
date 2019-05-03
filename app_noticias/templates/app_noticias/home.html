@@ -8,7 +8,7 @@
 
 <body>
     <center><h1>Plantão G1</h1></center> 
-    {% for noticia in object_list %}
+    {% for noticia in noticias %}
         {% if noticia.publicado %}
 
             <div style="margin-left:50px;margin-right:50px"></br> 
@@ -17,8 +17,11 @@
 
                 <div style="margin-left:50px;margin-right:50px">
 
-                        <div style="margin-right:-50px; font-size: 12px">
-                            <p align="right">{{ noticia.data_criacao}}</p></br>
+                        <div style="margin-right:-50px; font-size: 13px; text-align: right">
+                            {% for tag in noticia.tags.all %}
+                                <a href="{% url 'tag' tag.slug %}">{{ tag }}</a>
+                            {% endfor %}
+                            <p>{{ noticia.data_criacao}}</p></br>
                         </div>
                 </div>
 

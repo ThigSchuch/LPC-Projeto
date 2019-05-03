@@ -13,7 +13,6 @@
         </div>
 
         <p style="text-align:right">
-            Tags:
                 {% for tag in noticia.tags.all %}
                 <a href="{% url 'tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}

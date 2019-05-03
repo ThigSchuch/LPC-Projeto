@@ -3,10 +3,14 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views.generic import ListView
 from .models import Noticia, Tag
 # Create your views here.
-
+'''
 class HomePageView(ListView):
     model = Noticia
     template_name = 'app_noticias/home.html'
+'''
+def home(request):
+    noticias = Noticia.objects.order_by('data_publicacao').reverse()
+    return render(request, 'app_noticias/home.html', {'noticias':noticias})
 
 def noticias_resumo_template(request):
     total = Noticia.objects.count()
@@ -35,7 +39,7 @@ def noticia_detalhes(request, noticia_id):
 
 def lista_tag(request, pk):
     try:
-        noticia = Noticia.objects.all()
+        noticia = Noticia.objects.all().order_by('data_publicacao').reverse()
         tag = pk
 
     except Noticia.DoesNotExist:
