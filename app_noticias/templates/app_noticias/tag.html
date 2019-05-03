@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>HomePage</title>
+    <title>{{ tag.capitalize }}</title>
 </head>
 
 <body>
-    <center><h1>Plantão G1</h1></center> 
-    {% for noticia in object_list %}
-        {% if noticia.publicado %}
+    <h2>Sessão {{ tag.capitalize }}:</h2>
+    {% for noticia in noticias %}
 
+        {% for tagX in noticia.tags.all %}
+
+            {% if tagX.slug == tag %}
             <div style="margin-left:50px;margin-right:50px"></br> 
 
                 <h2><a href="/noticias/{{noticia.pk}}">{{ noticia.titulo }}</a></h2>
@@ -23,9 +25,10 @@
                 </div>
 
             </div>
-            <hr>
-        {% endif %}
-    {% endfor %}
+            {% endif %}
 
+        {% endfor %}
+    {% endfor %}
+    <a href="{% url 'home' %}">Voltar</a>
 </body>
 </html>

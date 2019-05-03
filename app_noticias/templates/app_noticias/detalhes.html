@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ noticia.titulo }}</title>
+    </head>
+    <body>
+
+        <h1 style="width:75%">{{ noticia.titulo }}</h1>
+
+        <div style="width:75%">
+            {{ noticia.conteudo | linebreaks }}
+        </div>
+
+        <p style="text-align:right">
+            Tags:
+                {% for tag in noticia.tags.all %}
+                <a href="{% url 'tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+        </p>
+        
+        <p style="text-align:right">
+            Escrita por <strong>{{ noticia.autor }}</strong><br>
+            {{ noticia.data_publicacao }}
+        </p>
+
+        <a href="{% url 'home' %}">Voltar</a>
+    </body>
+</html>

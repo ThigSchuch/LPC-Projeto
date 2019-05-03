@@ -1,0 +1,90 @@
+#django shell
+
+    python manage.py shell
+
+---------------------------------------------------
+
+#criar uma instância do model e usar o save()
+
+    from app_noticia.models import Noticia
+
+    variavel = Noticia(
+        titulo = 'Seu título',
+        conteudo = 'Seu conteudo'
+    )
+
+    variavel.save()
+
+---------------------------------------------------
+
+#criar instancia pelo create()
+
+    from app_noticia.models import Noticia
+
+    variavel = Noticia.ojects.create(
+        titulo = 'Seu título',
+        conteudo = 'Seu conteudo'
+    )
+
+---------------------------------------------------
+
+#atualizar objetos com save()
+
+    variavel.conteudo = 'teste'
+    variavel.save()
+
+---------------------------------------------------
+
+#recuperar objetos
+
+    all()
+    todos = Noticia.objects.all()
+
+---------------------------------------------------
+
+OffSet = 5
+Limit = ''
+Noticia.objects[5:]
+
+---------------------------------------------------
+
+#filtrar filter() exclude()
+
+    noticia = Noticia.object.filter(titulo='teste')
+    noticia = Noticia.object.exclude(titulo='teste')
+
+    titulo__contains='teste'
+    data_publicacao__year=2018
+    __contains=''
+
+---------------------------------------------------
+
+#get()
+
+    noticia_1 = Noticias.ojects.get(id=1)
+
+---------------------------------------------------
+
+exact = comparação exata
+iexact = comparação ignora Maius/Minus
+contains = contém tal
+startswith = começa com 
+endswith = termina com
+year = ano 
+month = mês 
+lt = menor que
+lte = menor ou igual que 
+gt = maior que 
+gte = maior ou igual que 
+
+---------------------------------------------------
+
+#excluir delete()
+
+    variavel.delete()
+
+---------------------------------------------------
+
+usuario = models.OneToOneField()
+autor = models.ForeignKey()
+tag = models.ManyToManyField()
