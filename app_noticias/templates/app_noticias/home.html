@@ -8,6 +8,10 @@
 
 <body>
     <center><h1>Plantão G1</h1></center> 
+    <p style="text-align: right;">
+        Nos contate por <a href="{% url 'contato' %}">aqui</a>
+    </p>
+
     {% for noticia in noticias %}
         {% if noticia.publicado %}
 
@@ -19,7 +23,7 @@
 
                         <div style="margin-right:-50px; font-size: 13px; text-align: right">
                             {% for tag in noticia.tags.all %}
-                                <a href="{% url 'tag' tag.slug %}">{{ tag }}</a>
+                                <a href="{% url 'slug' tag.slug %}">{{ tag }}</a>
                             {% endfor %}
                             <p>{{ noticia.data_criacao}}</p></br>
                         </div>

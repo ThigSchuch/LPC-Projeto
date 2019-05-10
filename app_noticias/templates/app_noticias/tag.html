@@ -7,21 +7,16 @@
 </head>
 
 <body>
-    <h2>Sobre {{ tag.capitalize }}:</h2>
-    {% for noticia in noticias %}
-        {% for tagX in noticia.tags.all %}
-            {% if tagX.slug == tag %}
-            <div style="margin-left:50px;margin-right:50px"></br> 
-                <h2><a href="/noticias/{{noticia.pk}}">{{ noticia.titulo }}</a></h2>
-                <div style="margin-left:50px;margin-right:50px">
-                        <div style="margin-right:-50px; font-size: 12px">
-                            <p align="right">{{ noticia.data_criacao}}</p></br>
-                        </div>
+    <h2>Notícias encontradas:</h2>
+    {% for n in noticia %}
+        <div style="margin-left:50px;margin-right:50px"></br> 
+            <h2><a href="/noticias/{{n.pk}}">{{ n.titulo }}</a></h2>
+            <div style="margin-left:50px;margin-right:50px">
+                <div style="margin-right:-50px; font-size: 12px">
+                    <p align="right">{{ noticia.data_criacao}}</p></br>
                 </div>
             </div>
-            {% endif %}
-
-        {% endfor %}
+        </div>
     {% endfor %}
     <a href="{% url 'home' %}">Voltar</a>
 </body>

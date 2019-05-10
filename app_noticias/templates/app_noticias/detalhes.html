@@ -14,7 +14,7 @@
 
         <p style="text-align:right">
                 {% for tag in noticia.tags.all %}
-                <a href="{% url 'tag' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+                    <a href="{% url 'slug' tag.slug %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
                 {% endfor %}
         </p>
         

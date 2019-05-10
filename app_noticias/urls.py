@@ -6,5 +6,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('noticias/resumo/', noticias_resumo_template, name = 'resumo'),
     path('noticias/<int:noticia_id>/', noticia_detalhes, name = 'detalhes'),
-    path('<str:pk>', lista_tag, name='tag'),
+    path('tag/<pk>', slug_view, name='slug'),
+    path('contato', ContatoView.as_view(), name='contato'),
+    path('contato_sucesso', ContatoSucessoView.as_view(), name='contato_sucesso'),
 ]
